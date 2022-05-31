@@ -6,14 +6,17 @@ TagManager:
   tags:
   - Ground
   - Wall
+  - Point
+  - Enemy
+  - Weapon
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Wall
   - Water
   - UI
-  - 
+  - Hook
   - 
   - 
   - 

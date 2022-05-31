@@ -6,7 +6,6 @@ public class CameraFollow : MonoBehaviour
 {
     public Transform target;
 
-    //Bound camera to limits
     [SerializeField] bool limitBounds = false;
     [SerializeField] float left = -5f;
     [SerializeField] float right = 5f;
@@ -24,12 +23,10 @@ public class CameraFollow : MonoBehaviour
         m_camera = GetComponent<Camera>();
     }
 
-    // FixedUpdate is called every frame, when the physics are calculated
     void FixedUpdate()
     {
         if (target != null)
         {
-            // Find the right position between the camera and the object
             lerpedPosition = Vector3.Lerp(transform.position, target.position, Time.deltaTime * 10f);
             lerpedPosition.x += camera_x;
             lerpedPosition.y += camera_y;
@@ -39,15 +36,12 @@ public class CameraFollow : MonoBehaviour
 
 
 
-    // LateUpdate is called after all other objects have moved
     void LateUpdate()
     {
         if (target != null)
         {
-            // Move the camera in the position found previously
             transform.position = lerpedPosition;
 
-            // Bounds the camera to the limits (if enabled)
             if (limitBounds)
             {
                 Vector3 bottomLeft = m_camera.ScreenToWorldPoint(Vector3.zero);
