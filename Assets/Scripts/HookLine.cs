@@ -17,7 +17,7 @@ public class HookLine : MonoBehaviour
     }
 
    
-    private void FixedUpdate()
+    private void Update()
     {
         var mousePos = Input.mousePosition;  //マウス座標を取得
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);  //カメラ座標に変換

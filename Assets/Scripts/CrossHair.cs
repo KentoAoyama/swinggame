@@ -18,7 +18,7 @@ public class CrossHair : MonoBehaviour
     }
 
     
-    void FixedUpdate()
+    void Update()
     {
         var pos = Input.mousePosition;
         pos.z = 10;
