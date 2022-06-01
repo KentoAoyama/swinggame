@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HookLine : MonoBehaviour
 {
-    [SerializeField] Transform _setPos = default;
+    //[SerializeField] Transform _setPos = default;
 
     [SerializeField] LayerMask _hookposlayer = default;
     [SerializeField] LineRenderer _line = default;
