@@ -8,34 +8,44 @@ public class SwingScript : MonoBehaviour
     [SerializeField] LayerMask _hookPosLayer = default;
     [SerializeField] SpringJoint2D _sj = default;
     [SerializeField] LineRenderer _line = default;
-    // float _hookInterval = 10f;
-    //float _hookTimer;
-
-    Vector3 _initialPosition;
+    [SerializeField] float _hookInterval = 0;
+    float _hookTimer;
+    Vector3 _initialPos;
     RaycastHit2D _hit;
 
 
-    private void Start()
+    void Start()
     {
         //jointとlineを切っておく
-        _sj.enabled = false;
-        _line.enabled = false;
+        Hookoff();
 
-        _initialPosition = this.transform.position;
+        _initialPos = this.transform.position;
     }
 
-    private void Update()
+    void Update()
     {
+        
         Swing();
 
-        if (this.transform.position == _initialPosition)
+        
+        if (_sj.enabled == true)
         {
-            _sj.enabled = false;
-            _line.enabled = false;
+            _hookTimer += Time.deltaTime;
+            
+            if (_hookTimer > _hookInterval)
+            {
+                Hookoff();
+            }
+        }
+        
+        
+        if (this.transform.position == _initialPos)
+        {
+            Hookoff();
         }
     }
 
-    private void LateUpdate()
+    void LateUpdate()
     {
         if (_hit)
         {
@@ -49,7 +59,6 @@ public class SwingScript : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))   //左クリックしたとき
         {
-            //_hookTimer += Time.deltaTime;
 
             //jointとlineのオンオフをする
             if (_sj.enabled == false)
@@ -61,8 +70,7 @@ public class SwingScript : MonoBehaviour
             }
             else
             {
-                _sj.enabled = false;
-                _line.enabled = false;
+                Hookoff();
             }
 
         }
@@ -82,13 +90,12 @@ public class SwingScript : MonoBehaviour
         }
         else
         {
-            _sj.enabled = false;
-            _line.enabled = false;
+            Hookoff();
         }
     }
 
 
-    public void HookShootLine()
+    void HookShootLine()
     {
         var mousePos = Input.mousePosition;  //マウス座標を取得
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);  //カメラ座標に変換
@@ -98,8 +105,16 @@ public class SwingScript : MonoBehaviour
         _hit = Physics2D.Raycast(this.transform.position, mousePos - transform.position, 100, _hookPosLayer);
     }
 
+     
+    void Hookoff()
+    {
+        _sj.enabled = false;  //時間経過でフックを切る
+        _line.enabled = false;
+        _hookTimer = 0;
+    }
 
-    private void OnCollisionStay2D(Collision2D collision)
+
+    void OnCollisionStay2D(Collision2D collision)
     {
         //壁にぶつかったときの処理
         if (collision.gameObject.tag == "Wall" && _sj.distance >= 1)

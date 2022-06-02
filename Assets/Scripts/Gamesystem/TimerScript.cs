@@ -10,22 +10,29 @@ public class TimerScript : MonoBehaviour
     [SerializeField] Text _timerText = default;
     [SerializeField] float _timer;
     GameObject _player;
+    Vector3 _initialPos;
+    float _countdown = 3;
 
 
     void Start()
     {
         _player = GameObject.Find("Player");
+        _initialPos = _player.transform.position;
+
+        _timerText.text = $"{_timer:f2}";
     }
 
 
     void Update()
     {
-        if (_player != null)
+        _countdown -= Time.deltaTime;
+
+        if (_player != null && _player.transform.position != _initialPos && _countdown <= 0)
         {
             if (_timer >= 0)
             {
                 _timer -= Time.deltaTime;
-                _timerText.text = $"{_timer.ToString("f2")}";
+                _timerText.text = $"{_timer:f2}";
             }
         }
     }

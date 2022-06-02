@@ -8,7 +8,6 @@ public class GameOverScript : MonoBehaviour
 {
     GameObject _player;
     GameObject _gameoverText;
-    //bool _isGameover;
     [SerializeField] float _timer;
 
 

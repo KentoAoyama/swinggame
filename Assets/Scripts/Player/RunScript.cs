@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RunScript : MonoBehaviour
 {
 
-    [SerializeField] float _movePower = 5f;
+    [SerializeField] float _movePower = 0;
     [SerializeField] float _jumpPower = 15f;
     [SerializeField] Vector2 resetPosition;
     Rigidbody2D _rb = default;
     Vector3 _initialPosition;
     private bool jump = false;
     private int jumpCount = 0;
+    float _startTimer;
 
     void Start()
     {
@@ -22,6 +24,12 @@ public class RunScript : MonoBehaviour
     
     void Update()
     {
+        _startTimer += Time.deltaTime;
+        
+        if (_startTimer > 3)
+        {
+        }
+        
         if (this.transform.position.x > resetPosition.x || this.transform.position.y < resetPosition.y)
         {
             this.transform.position = _initialPosition;
@@ -37,9 +45,12 @@ public class RunScript : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {        
-        var moveVect = Vector2.right * _movePower;
-        _rb.velocity = new Vector2(moveVect.x, _rb.velocity.y);
+    {
+        if (_startTimer > 3)
+        {
+            var moveVect = Vector2.right * _movePower;
+            _rb.velocity = new Vector2(moveVect.x, _rb.velocity.y);
+        }
 
         if (jump)
         {
