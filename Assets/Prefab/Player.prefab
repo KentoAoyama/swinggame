@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 207265582452858080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -27.6, y: -9.2, z: 0}
-  m_LocalScale: {x: 3.38, y: 7.17, z: 1}
+  m_LocalScale: {x: 2, y: 5, z: 1}
   m_Children:
   - {fileID: 4876569035600718442}
   - {fileID: 2539110646367656250}
@@ -152,6 +152,7 @@ MonoBehaviour:
   _movePower: 15
   _jumpPower: 50
   resetPosition: {x: 0, y: 0}
+  _startTimer: 0
 --- !u!114 &207265582452858081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +184,7 @@ MonoBehaviour:
     m_Bits: 0
   _sj: {fileID: 0}
   _line: {fileID: 0}
+  _hookInterval: 0
 --- !u!231 &4257099219846597729
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -277,7 +279,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eddaadc850bf36149bab610ddd242de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _setPos: {fileID: 0}
   _hookposlayer:
     serializedVersion: 2
     m_Bits: 64

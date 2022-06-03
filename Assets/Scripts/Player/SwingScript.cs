@@ -102,7 +102,7 @@ public class SwingScript : MonoBehaviour
         mousePos.z = 0;  //Z軸だけ修正
 
         //自身の位置からマウス座標の方向にレイを飛ばして当たったコライダーが設定したレイヤーだったら
-        _hit = Physics2D.Raycast(this.transform.position, mousePos - transform.position, 100, _hookPosLayer);
+        _hit = Physics2D.Raycast(this.transform.position, mousePos - transform.position, 60, _hookPosLayer);
     }
 
      
