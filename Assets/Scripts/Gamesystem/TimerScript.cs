@@ -30,19 +30,19 @@ public class TimerScript : MonoBehaviour
 
         if (_player != null && _player.transform.position != _initialPos && _countdown <= 0)
         {
-            if (_timer != 0)
+            if (_timer >= 0.1)
             {
                 _timer -= Time.deltaTime;
                 _timerText.text = $"{_timer:f2}";
             }
         }
-        else if (_timer <= 0.02)
+        else if (_timer <= 0.1)
         {
             _timerText.text = $"0.00";
         }
 
 
-        if (_player == null || _timer <= 0.02)
+        if (_player == null || _timer <= 0.1)
         {
             GameOver();
         }
