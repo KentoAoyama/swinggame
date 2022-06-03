@@ -9,6 +9,7 @@ public class GameOverScript : MonoBehaviour
     GameObject _player;
     GameObject _gameoverText;
     [SerializeField] float _timer;
+    Vector3 _initialPos;
 
 
 
@@ -16,13 +17,16 @@ public class GameOverScript : MonoBehaviour
     {
         _player = GameObject.Find("Player");
         _gameoverText = GameObject.Find("Gameover");
+        _initialPos = _player.transform.position;
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
-        _timer -= Time.deltaTime;
-
+        if (_player.transform.position != _initialPos)
+        {
+            _timer -= Time.deltaTime;
+        }
 
         if (_player == null)
         {
