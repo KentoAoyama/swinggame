@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class StartScript : MonoBehaviour
 {
     GameObject _startText;
-    float _countdown = 3;
+    [SerializeField] float _countdown = 3;
 
 
     void Start()

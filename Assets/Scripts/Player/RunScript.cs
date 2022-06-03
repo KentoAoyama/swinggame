@@ -13,7 +13,7 @@ public class RunScript : MonoBehaviour
     Vector3 _initialPosition;
     private bool jump = false;
     private int jumpCount = 0;
-    float _startTimer;
+    [SerializeField] float _startTimer;
 
     void Start()
     {
@@ -25,10 +25,6 @@ public class RunScript : MonoBehaviour
     void Update()
     {
         _startTimer += Time.deltaTime;
-        
-        if (_startTimer > 3)
-        {
-        }
         
         if (this.transform.position.x > resetPosition.x || this.transform.position.y < resetPosition.y)
         {

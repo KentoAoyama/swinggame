@@ -27,7 +27,6 @@ public class HookLine : MonoBehaviour
         _hit = Physics2D.Raycast(this.transform.position, mousePos - transform.position, 100, _hookposlayer);
         
         Debug.DrawLine(this.transform.position,_hit.point);
-        Debug.Log(mousePos - transform.position);
 
         if (_hit)
         {
