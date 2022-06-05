@@ -9,6 +9,7 @@ public class SwingScript : MonoBehaviour
     [SerializeField] SpringJoint2D _sj = default;
     [SerializeField] LineRenderer _line = default;
     [SerializeField] float _hookInterval = 0;
+    [SerializeField] float _hookLength;
     float _hookTimer;
     Vector3 _initialPos;
     RaycastHit2D _hit;
@@ -102,7 +103,7 @@ public class SwingScript : MonoBehaviour
         mousePos.z = 0;  //Z軸だけ修正
 
         //自身の位置からマウス座標の方向にレイを飛ばして当たったコライダーが設定したレイヤーだったら
-        _hit = Physics2D.Raycast(this.transform.position, mousePos - transform.position, 60, _hookPosLayer);
+        _hit = Physics2D.Raycast(this.transform.position, mousePos - transform.position, _hookLength, _hookPosLayer);
     }
 
      

@@ -8,11 +8,6 @@ public class GoalLineScript : MonoBehaviour
     [SerializeField] GameObject _player;
 
 
-    void Start()
-    {
-    }
-
-
     public void OnTriggerEnter2D(Collider2D collider)
     {
         _panel.SetActive(true);
