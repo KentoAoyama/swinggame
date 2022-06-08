@@ -5,11 +5,11 @@ using UnityEngine;
 public class AttackScript : MonoBehaviour
 {
 
-    [SerializeField] GameObject _prefab = default;
+    [SerializeField] GameObject _weapon;
     [SerializeField] float _interval = 1f;
-    [SerializeField] bool _generateOnStart = true;
+    [SerializeField] float _attackTime = 1f;
     float _timer;
-
+    bool _generateOnStart = true;
 
     void Start()
     {
@@ -17,21 +17,28 @@ public class AttackScript : MonoBehaviour
         {
             _timer = _interval;
         }
+
+        _weapon.SetActive(false);
     }
 
-    
+
     void Update()
     {
         _timer += Time.deltaTime;
-
 
         if (Input.GetButtonDown("Fire2"))
         {
             if (_timer > _interval)
             {
                 _timer = 0;
-                Instantiate(_prefab, transform.position, transform.rotation);
+                _weapon.SetActive(true);
+                Invoke(nameof(Weaponoff), _attackTime);
             }
         }
+    }
+
+    void Weaponoff()
+    {
+        _weapon.SetActive(false);
     }
 }

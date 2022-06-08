@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SwingScript : MonoBehaviour
 {
-    [SerializeField] Transform _setPos = default;
     [SerializeField] LayerMask _hookPosLayer = default;
     [SerializeField] SpringJoint2D _sj = default;
     [SerializeField] LineRenderer _line = default;
@@ -12,7 +11,7 @@ public class SwingScript : MonoBehaviour
     [SerializeField] float _hookLength;
     float _hookTimer;
     Vector3 _initialPos;
-    RaycastHit2D _hit;
+    public static RaycastHit2D _hit;
 
 
     void Start()
@@ -38,12 +37,6 @@ public class SwingScript : MonoBehaviour
                 Hookoff();
             }
         }
-        
-        
-        if (this.transform.position == _initialPos)
-        {
-            Hookoff();
-        }
     }
 
     void LateUpdate()
@@ -53,6 +46,11 @@ public class SwingScript : MonoBehaviour
             //LineRendererの始点終点の設定
             _line.SetPosition(0, this.transform.position);
             _line.SetPosition(1, _hit.point);
+        }
+        
+        if (this.transform.position == _initialPos)
+        {
+            Hookoff();
         }
     }
 
@@ -86,8 +84,7 @@ public class SwingScript : MonoBehaviour
 
         if (_hit)
         {
-            _setPos.transform.position = _hit.point;
-            _sj.connectedAnchor = _setPos.position;            
+            _sj.connectedAnchor = _hit.point;
         }
         else
         {
