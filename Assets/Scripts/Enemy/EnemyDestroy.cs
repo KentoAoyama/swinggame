@@ -7,6 +7,7 @@ public class EnemyDestroy : MonoBehaviour
 
     [SerializeField] GameObject _activeObject;
 
+
     void Start()
     {
         _activeObject.SetActive(false);
@@ -14,11 +15,10 @@ public class EnemyDestroy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject)
+        if (collision.gameObject.tag == "Weapon")
         {
             _activeObject.SetActive(true);
             Destroy(this.gameObject);
-            
         }
     }
 }

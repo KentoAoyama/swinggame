@@ -44,7 +44,7 @@ public class RunScript : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            _mousePos = Input.mousePosition;  //マウス座標を取得
+            _mousePos = Input.mousePosition;
             _mousePos = Camera.main.ScreenToWorldPoint(_mousePos);
             _mousePos.z = 0;
 
@@ -108,6 +108,11 @@ public class RunScript : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             _jumpCount = 0;
+        }
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            this.transform.position = _initialPosition;
         }
     }
 }

@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 1863893470255924741}
   - component: {fileID: 2317659331510572679}
   - component: {fileID: 5162376426763195569}
-  - component: {fileID: 2317659331510572677}
   - component: {fileID: 2317659331510572678}
   m_Layer: 0
   m_Name: Player
@@ -263,19 +262,6 @@ MonoBehaviour:
   _swingPower: 40
   _startTimer: 0
   _speedLimit: 40
---- !u!114 &2317659331510572677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2317659331510572676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5b556d2bceba4749b4de79dd8b260a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerHP: 2
 --- !u!114 &2317659331510572678
 MonoBehaviour:
   m_ObjectHideFlags: 0

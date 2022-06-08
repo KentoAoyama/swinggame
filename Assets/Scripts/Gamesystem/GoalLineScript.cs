@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GoalLineScript : MonoBehaviour
 {
@@ -13,11 +15,18 @@ public class GoalLineScript : MonoBehaviour
     }
 
 
+
     public void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject == _player)
         {
             _panel.SetActive(true);
+            Invoke("NextScene", 2f);
         }
+    }
+
+    void NextScene()
+    {
+        SceneManager.LoadScene("TitleScene");
     }
 }
