@@ -9,13 +9,12 @@ public class RunScript : MonoBehaviour
     [SerializeField] float _movePower = 0;
     [SerializeField] float _jumpPower = 0;
     [SerializeField] float _swingPower = 0;
-    [SerializeField] Vector2 resetPosition;
     [SerializeField] float _startTimer;
     [SerializeField] float _speedLimit;
     float _h;
     Rigidbody2D _rb = default;
     SpringJoint2D _sj;
-    Vector3 _initialPosition;
+    public static Vector3 _initialPosition;
     Vector3 _mousePos;
     Vector2 _playerPos;
     bool _jump = false;
@@ -68,12 +67,6 @@ public class RunScript : MonoBehaviour
             _jump = false;
             _jumpCount++;
         }
-
-        if (this.transform.position.x > resetPosition.x || this.transform.position.y < resetPosition.y)
-        {
-            this.transform.position = _initialPosition;
-        }
-
     }
 
 

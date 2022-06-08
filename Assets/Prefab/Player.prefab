@@ -261,7 +261,6 @@ MonoBehaviour:
   _movePower: 40
   _jumpPower: 40
   _swingPower: 40
-  resetPosition: {x: 334, y: -80}
   _startTimer: 0
   _speedLimit: 40
 --- !u!114 &2317659331510572677
@@ -562,7 +561,8 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6521471006430409339, guid: ee760f76fca4e86448a885bcb267d653, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ee760f76fca4e86448a885bcb267d653, type: 3}
 --- !u!4 &1952004917519998398 stripped
 Transform:

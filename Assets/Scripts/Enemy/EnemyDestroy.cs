@@ -16,8 +16,9 @@ public class EnemyDestroy : MonoBehaviour
     {
         if (collision.gameObject)
         {
-            Destroy(this.gameObject);
             _activeObject.SetActive(true);
+            Destroy(this.gameObject);
+            
         }
     }
 }
