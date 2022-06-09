@@ -23,8 +23,7 @@ public class SwingScript : MonoBehaviour
     }
 
     void Update()
-    {
-        
+    {        
         if (RunScript._startTimer > 3)
         {
             Swing();

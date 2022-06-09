@@ -9,6 +9,8 @@ public class TimerScript : MonoBehaviour
 
     [SerializeField] Text _timerText = default;
     [SerializeField] public float _timer;
+    [SerializeField] public static float _currentTime;
+    [SerializeField] Text _resultTime;
     GameObject _player;
     GameObject _gameoverText;
     Vector3 _initialPos;
@@ -29,12 +31,14 @@ public class TimerScript : MonoBehaviour
     {
         _countdown -= Time.deltaTime;
 
-        if (_player != null && _player.transform.position != _initialPos && _countdown <= 0)
+        if (_player != null && _player.transform.position != _initialPos && _countdown <= 0 && GoalLineScript._goal == false)
         {
             if (_timer >= 0.1)
             {
                 _timer -= Time.deltaTime;
                 _timerText.text = $"{_timer:f2}";
+                _currentTime += Time.deltaTime;
+                _resultTime.text = $"{_currentTime:f2}";
             }
         }
         else if (_timer <= 0.1)

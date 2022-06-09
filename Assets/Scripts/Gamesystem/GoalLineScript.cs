@@ -7,10 +7,13 @@ using UnityEngine.SceneManagement;
 public class GoalLineScript : MonoBehaviour
 {
     [SerializeField] GameObject _panel;
+    [SerializeField] GameObject _result;
     [SerializeField] GameObject _player;
+    public static bool _goal;
 
     void Start()
     {
+        _result.SetActive(false);
         _panel.SetActive(false);
     }
 
@@ -27,9 +30,11 @@ public class GoalLineScript : MonoBehaviour
 
     IEnumerator Goal()
     {
+        _goal = true;
         Time.timeScale = 0.5f;
         _panel.SetActive(true);
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("TitleScene");
+        yield return new WaitForSeconds(1);
+        _result.SetActive(true);
     }
+    //SceneManager.LoadScene("TitleScene");
 }
