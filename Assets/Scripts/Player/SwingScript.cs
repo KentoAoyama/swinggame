@@ -25,8 +25,10 @@ public class SwingScript : MonoBehaviour
     void Update()
     {
         
-        Swing();
-
+        if (RunScript._startTimer > 3)
+        {
+            Swing();
+        }
         
         if (_sj.enabled == true)
         {
@@ -115,7 +117,7 @@ public class SwingScript : MonoBehaviour
     void OnCollisionStay2D(Collision2D collision)
     {
         //•Ç‚É‚Ô‚Â‚©‚Á‚½‚Æ‚«‚Ìˆ—
-        if (collision.gameObject.tag == "Wall" && _sj.distance >= 1)
+        if (collision.gameObject.tag == "Wall" && _sj.distance >= 1 || collision.gameObject.tag == "Ground" && _sj.distance >= 1)
         {
             _sj.autoConfigureDistance = false;
             _sj.distance--;

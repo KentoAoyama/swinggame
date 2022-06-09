@@ -20,13 +20,16 @@ public class GoalLineScript : MonoBehaviour
     {
         if (collider.gameObject == _player)
         {
-            _panel.SetActive(true);
-            Invoke("NextScene", 2f);
+            StartCoroutine("Goal");
         }
     }
 
-    void NextScene()
+
+    IEnumerator Goal()
     {
+        Time.timeScale = 0.5f;
+        _panel.SetActive(true);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene("TitleScene");
     }
 }

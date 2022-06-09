@@ -8,11 +8,12 @@ public class TimerScript : MonoBehaviour
 {
 
     [SerializeField] Text _timerText = default;
-    [SerializeField] float _timer;
+    [SerializeField] public float _timer;
     GameObject _player;
     GameObject _gameoverText;
     Vector3 _initialPos;
     float _countdown = 3;
+    public static bool _goalin;
 
 
     void Start()

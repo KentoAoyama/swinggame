@@ -9,7 +9,7 @@ public class RunScript : MonoBehaviour
     [SerializeField] float _movePower = 0;
     [SerializeField] float _jumpPower = 0;
     [SerializeField] float _swingPower = 0;
-    [SerializeField] float _startTimer;
+    [SerializeField] public static float _startTimer;
     [SerializeField] float _speedLimit;
     float _h;
     Rigidbody2D _rb = default;
@@ -74,7 +74,6 @@ public class RunScript : MonoBehaviour
     {
         _h = Input.GetAxisRaw("Horizontal");
 
-        
         if (_sj.enabled == false)
         {
             var moveVect = Vector2.right * _movePower * _h;
