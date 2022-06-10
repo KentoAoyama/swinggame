@@ -35,6 +35,7 @@ public class GoalLineScript : MonoBehaviour
         _panel.SetActive(true);
         yield return new WaitForSeconds(1);
         _result.SetActive(true);
+        Time.timeScale = 1.0f;
     }
     //SceneManager.LoadScene("TitleScene");
 }
