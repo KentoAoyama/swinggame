@@ -14,6 +14,7 @@ public class EnemyDestroy : MonoBehaviour
         _activeObject.SetActive(false);
         _anime =  GetComponent<Animator>();
         _cc = GetComponent<CircleCollider2D>();
+        _anime.SetBool("Death", false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

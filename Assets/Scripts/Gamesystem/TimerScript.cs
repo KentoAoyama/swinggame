@@ -11,6 +11,7 @@ public class TimerScript : MonoBehaviour
     [SerializeField] public float _timer;
     [SerializeField] public static float _currentTime;
     [SerializeField] Text _resultTime;
+    [SerializeField] GameObject _MainUI;
     GameObject _player;
     GameObject _gameoverText;
     Vector3 _initialPos;
@@ -24,6 +25,7 @@ public class TimerScript : MonoBehaviour
         _gameoverText = GameObject.Find("Gameover");
         _initialPos = _player.transform.position;
         _timerText.text = $"{_timer:f2}";
+        _MainUI.SetActive(true);
     }
 
 

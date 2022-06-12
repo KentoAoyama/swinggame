@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
 public class GoalLineScript : MonoBehaviour
@@ -36,6 +35,6 @@ public class GoalLineScript : MonoBehaviour
         yield return new WaitForSeconds(1);
         _result.SetActive(true);
         Time.timeScale = 1.0f;
+        Cursor.visible = true;
     }
-    //SceneManager.LoadScene("TitleScene");
 }
