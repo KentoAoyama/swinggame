@@ -568,6 +568,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -674,6 +675,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!4 &525821652 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1490431384890343700, guid: 8ae2dc6d511b14947a0cc41eb8774cbb, type: 3}
@@ -1074,6 +1108,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8933241875024105530, guid: a1e2e937ab8fe1347a32c0d5096d57b2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 49df1ef1371cdbe47be767360416510c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1e2e937ab8fe1347a32c0d5096d57b2, type: 3}
 --- !u!4 &823389798 stripped
@@ -2279,15 +2317,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7864665095453058914, guid: 5c0bb797e49c4064f9470caef221fe5b, type: 3}
       propertyPath: m_Color.b
-      value: 0.48627454
+      value: 0.9176471
       objectReference: {fileID: 0}
     - target: {fileID: 7864665095453058914, guid: 5c0bb797e49c4064f9470caef221fe5b, type: 3}
       propertyPath: m_Color.g
-      value: 0.48627454
+      value: 0.9215687
       objectReference: {fileID: 0}
     - target: {fileID: 7864665095453058914, guid: 5c0bb797e49c4064f9470caef221fe5b, type: 3}
       propertyPath: m_Color.r
-      value: 0.4901961
+      value: 0.9215687
       objectReference: {fileID: 0}
     - target: {fileID: 8356223516151653201, guid: 5c0bb797e49c4064f9470caef221fe5b, type: 3}
       propertyPath: m_Name
@@ -2610,6 +2648,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8994065629739117346, guid: 381f96ff71a7f0540ac07b2d54a14a4a, type: 3}
   m_PrefabInstance: {fileID: 1563997431}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1784164685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1784164687}
+  - component: {fileID: 1784164686}
+  m_Layer: 0
+  m_Name: Global Volume (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1784164686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784164685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 7ffe7eb76e965404481d3db9a1c1264a, type: 2}
+--- !u!4 &1784164687
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784164685}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1831679715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2739,6 +2825,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1975750816}
     m_Modifications:
+    - target: {fileID: 3302387472057145176, guid: 34683a53265d28f4f9cfc294b720883b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.3921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 3302387472057145176, guid: 34683a53265d28f4f9cfc294b720883b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.16862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 3302387472057145176, guid: 34683a53265d28f4f9cfc294b720883b, type: 3}
+      propertyPath: m_Color.r
+      value: 0.10196079
+      objectReference: {fileID: 0}
     - target: {fileID: 3756914100158961794, guid: 34683a53265d28f4f9cfc294b720883b, type: 3}
       propertyPath: m_Name
       value: Check (1)
@@ -3657,6 +3755,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4815470430842926968, guid: 05fd59ba28678c044be33ef1db08f0c6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 49df1ef1371cdbe47be767360416510c, type: 2}
     - target: {fileID: 4815470430842926975, guid: 05fd59ba28678c044be33ef1db08f0c6, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -4407,6 +4509,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1975750816}
     m_Modifications:
+    - target: {fileID: 3302387472057145176, guid: 34683a53265d28f4f9cfc294b720883b, type: 3}
+      propertyPath: m_Color.a
+      value: 0.38431373
+      objectReference: {fileID: 0}
     - target: {fileID: 3756914100158961794, guid: 34683a53265d28f4f9cfc294b720883b, type: 3}
       propertyPath: m_Name
       value: Check

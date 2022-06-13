@@ -53,7 +53,7 @@ public class RunScript : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         if (_startTimer > 3)
         {
