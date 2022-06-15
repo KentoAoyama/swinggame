@@ -11,19 +11,27 @@ public class MainMenuScript : MonoBehaviour
     [SerializeField] Color _color;
     Color _defaultcolor;
     TextMesh _tm;
+    [SerializeField] GameObject _thisText;
+    [SerializeField] GameObject _thisbutton;
+    [SerializeField] GameObject _nextText;
+    [SerializeField] GameObject _nextButton;
 
 
     private void Start()
     {
         _tm = GetComponent<TextMesh>();
         _defaultcolor = _tm.color;
+
+        _thisText.SetActive(true);
+        _nextText.SetActive(false);
+        _nextButton.SetActive(false);
+        _thisbutton.SetActive(true);
     }
 
     
     private void OnMouseOver()
     {
         _tm.color = _color;
-        Debug.Log("OK");
     }
 
     
@@ -38,10 +46,12 @@ public class MainMenuScript : MonoBehaviour
         SceneManager.LoadScene(y);
     }
 
-    //public void NextSelect(GameObject j, GameObject k)
-    //{
-    //    j.SetActive(true);
-    //    k.SetActive(true);
-    //    this.gameObject.SetActive(false);
-    //}
+    
+    public void NextSelect()
+    {
+        _nextText.SetActive(true);
+        _nextButton.SetActive(true);
+        _thisbutton.SetActive(false);
+        _thisText.SetActive(false);
+    }
 }
