@@ -73,6 +73,7 @@ public class SwingScript : MonoBehaviour
                 Hookoff();
             }
 
+            
         }
         Debug.DrawLine(transform.position, _hit.point);
     }

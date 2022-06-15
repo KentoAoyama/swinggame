@@ -11,7 +11,6 @@ public class EnemyDestroy : MonoBehaviour
 
     void Start()
     {
-        _activeObject.SetActive(false);
         _anime =  GetComponent<Animator>();
         _cc = GetComponent<CircleCollider2D>();
         _anime.SetBool("Death", false);
@@ -21,9 +20,18 @@ public class EnemyDestroy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Weapon")
         {
-            _anime.SetBool("Death", true);
-            _activeObject.SetActive(true);
-            Destroy(this.gameObject, 1f);
+            if (_activeObject.activeSelf == (false))
+            {
+                _anime.SetBool("Death", true);
+                _activeObject.SetActive(true);
+                Destroy(this.gameObject, 1f);
+            }
+            else if (_activeObject.activeSelf == (true))
+            {
+                _anime.SetBool("Death", true);
+                _activeObject.SetActive(false);
+                Destroy(this.gameObject, 1f);
+            }
         }
     }
 
