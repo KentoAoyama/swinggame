@@ -12,8 +12,9 @@ public class TimerScript : MonoBehaviour
     [SerializeField] public static float _currentTime;
     [SerializeField] Text _resultTime;
     [SerializeField] GameObject _MainUI;
+    [SerializeField] GameObject _gameover;
     GameObject _player;
-    GameObject _gameoverText;
+    
     Vector3 _initialPos;
     float _countdown = 3;
     public static bool _goalin;
@@ -21,11 +22,15 @@ public class TimerScript : MonoBehaviour
 
     void Start()
     {
-        _player = GameObject.Find("Player");
-        _gameoverText = GameObject.Find("Gameover");
+        GoalLineScript._goal = false;
+        
+        _player = GameObject.FindWithTag("Player");
         _initialPos = _player.transform.position;
         _timerText.text = $"{_timer:f2}";
         _MainUI.SetActive(true);
+
+        _gameover.SetActive(false);
+
     }
 
 
@@ -35,7 +40,7 @@ public class TimerScript : MonoBehaviour
 
         if (_player != null && _player.transform.position != _initialPos && _countdown <= 0 && GoalLineScript._goal == false)
         {
-            if (_timer >= 0.1)
+            if (_timer > 0.1)
             {
                 _timer -= Time.deltaTime;
                 _timerText.text = $"{_timer:f2}";
@@ -43,13 +48,13 @@ public class TimerScript : MonoBehaviour
                 _resultTime.text = $"{_currentTime:f2}";
             }
         }
-        else if (_timer <= 0.1)
+        else
         {
             _timerText.text = $"0.00";
         }
 
 
-        if (_player == null || _timer <= 0.1)
+        if (_timer <= 0.1)
         {
             GameOver();
         }
@@ -57,8 +62,10 @@ public class TimerScript : MonoBehaviour
 
     void GameOver()
     {
-        Text gameoverText = _gameoverText.GetComponent<Text>();
+        _gameover.SetActive(true);
+        Text gameoverText = _gameover.GetComponent<Text>();
         gameoverText.text = ("GameOver");
         Destroy(_player);
+        Cursor.visible = true;
     }
 }

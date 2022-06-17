@@ -9,6 +9,7 @@ public class SwingScript : MonoBehaviour
     [SerializeField] LineRenderer _line = default;
     [SerializeField] float _hookInterval = 0;
     [SerializeField] float _hookLength;
+    [SerializeField] GameObject _help;
     float _hookTimer;
     Vector3 _initialPos;
     public static RaycastHit2D _hit;
@@ -24,7 +25,7 @@ public class SwingScript : MonoBehaviour
 
     void Update()
     {        
-        if (RunScript._startTimer > 3)
+        if (RunScript._startTimer > 3 && _help.activeSelf == false)
         {
             Swing();
         }

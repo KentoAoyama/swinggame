@@ -27,6 +27,7 @@ public class RunScript : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _sj = GetComponent<SpringJoint2D>();
         _initialPosition = this.transform.position;
+        _startTimer = 0;
     }
 
     
