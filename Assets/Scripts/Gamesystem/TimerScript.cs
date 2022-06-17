@@ -13,6 +13,8 @@ public class TimerScript : MonoBehaviour
     [SerializeField] Text _resultTime;
     [SerializeField] GameObject _MainUI;
     [SerializeField] GameObject _gameover;
+    [SerializeField] GameObject _help;
+    [SerializeField] GameObject _helpButton;
     GameObject _player;
     
     Vector3 _initialPos;
@@ -48,15 +50,21 @@ public class TimerScript : MonoBehaviour
                 _resultTime.text = $"{_currentTime:f2}";
             }
         }
-        else
+        else if (_player == null)
         {
             _timerText.text = $"0.00";
         }
 
-
         if (_timer <= 0.1)
         {
+            _helpButton.SetActive(false);
             GameOver();
+        }
+
+        if (_gameover.activeSelf == true)
+        {
+            Time.timeScale = 1;
+            _help.SetActive(false);
         }
     }
 

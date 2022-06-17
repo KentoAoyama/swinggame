@@ -18,7 +18,10 @@ public class HelpScript : MonoBehaviour
 
     public void HelpOn()
     {
-        StartCoroutine(Helpon());
+        if (GoalLineScript._goal != true)
+        {
+            StartCoroutine(Helpon());
+        }
     }
 
     public void Help0ff()

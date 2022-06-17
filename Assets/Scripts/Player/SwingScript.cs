@@ -10,9 +10,11 @@ public class SwingScript : MonoBehaviour
     [SerializeField] float _hookInterval = 0;
     [SerializeField] float _hookLength;
     [SerializeField] GameObject _help;
+    [SerializeField] GameObject _particle;
     float _hookTimer;
     Vector3 _initialPos;
     public static RaycastHit2D _hit;
+    ParticleSystem _ps;
 
 
     void Start()
@@ -21,10 +23,16 @@ public class SwingScript : MonoBehaviour
         Hookoff();
 
         _initialPos = this.transform.position;
+
+        _ps = _particle.GetComponent<ParticleSystem>();
     }
 
     void Update()
-    {        
+    {
+        if (_help==null)
+        {
+            Debug.Log("_help‚ªƒAƒTƒCƒ“‚³‚ê‚Ä‚Ü‚¹‚ñ");
+        }
         if (RunScript._startTimer > 3 && _help.activeSelf == false)
         {
             Swing();
@@ -73,10 +81,7 @@ public class SwingScript : MonoBehaviour
             {
                 Hookoff();
             }
-
-            
         }
-        Debug.DrawLine(transform.position, _hit.point);
     }
 
 
@@ -88,6 +93,8 @@ public class SwingScript : MonoBehaviour
         if (_hit)
         {
             _sj.connectedAnchor = _hit.point;
+            _particle.transform.position = _hit.point;
+            _ps.Play();
         }
         else
         {
