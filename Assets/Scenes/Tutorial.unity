@@ -1727,7 +1727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timerText: {fileID: 1479527929264513712}
-  _timer: 1
+  _timer: 999.99
   _resultTime: {fileID: 1249304064}
   _MainUI: {fileID: 590152786}
   _gameover: {fileID: 1479527929264513709}
@@ -3646,6 +3646,10 @@ PrefabInstance:
       propertyPath: m_FontData.m_HorizontalOverflow
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7134161618285072678, guid: 37cacfd83bfcc2345b3a348829ed9587, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8510699538128994316, guid: 37cacfd83bfcc2345b3a348829ed9587, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Tutorial
@@ -3669,7 +3673,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1479527929264513712 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1928198090487018251, guid: 37cacfd83bfcc2345b3a348829ed9587, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1479527928983050375, guid: 37cacfd83bfcc2345b3a348829ed9587, type: 3}
   m_PrefabInstance: {fileID: 1479527929264513708}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -4474,13 +4478,17 @@ PrefabInstance:
       propertyPath: m_FontData.m_HorizontalOverflow
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4985554963915521530, guid: eb8dc71c45fae104a9420e06e278439a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4985554963915521531, guid: eb8dc71c45fae104a9420e06e278439a, type: 3}
       propertyPath: m_Name
       value: ClearTime
       objectReference: {fileID: 0}
     - target: {fileID: 4985554963915521531, guid: eb8dc71c45fae104a9420e06e278439a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4985554963915521541, guid: eb8dc71c45fae104a9420e06e278439a, type: 3}
       propertyPath: m_Text
@@ -4596,11 +4604,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4985554964871058748, guid: eb8dc71c45fae104a9420e06e278439a, type: 3}
       propertyPath: m_Text
-      value: CLEAR
+      value: Clear Time
       objectReference: {fileID: 0}
     - target: {fileID: 4985554964871058749, guid: eb8dc71c45fae104a9420e06e278439a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -266
+      value: -152.3
       objectReference: {fileID: 0}
     - target: {fileID: 4985554965108659899, guid: eb8dc71c45fae104a9420e06e278439a, type: 3}
       propertyPath: m_Color.a
