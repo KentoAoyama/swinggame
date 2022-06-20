@@ -19,6 +19,8 @@ public class RunScript : MonoBehaviour
     Vector2 _playerPos;
     bool _jump = false;
     int _jumpCount = 0;
+    Animator _animator;
+    public static bool _death;
 
 
 
@@ -26,6 +28,7 @@ public class RunScript : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _sj = GetComponent<SpringJoint2D>();
+        _animator = GetComponent<Animator>();
         _initialPosition = this.transform.position;
         _startTimer = 0;
     }
@@ -75,7 +78,7 @@ public class RunScript : MonoBehaviour
     {
         _h = Input.GetAxisRaw("Horizontal");
 
-        if (_sj.enabled == false)
+        if (_sj.enabled == false && _death != true)
         {
             var moveVect = Vector2.right * _movePower * _h;
             _rb.velocity = new Vector2(moveVect.x, _rb.velocity.y);
@@ -89,7 +92,7 @@ public class RunScript : MonoBehaviour
                 _rb.velocity = new Vector2(-_speedLimit, _rb.velocity.y);
             }
         }
-        else
+        else if (_sj.enabled == true)
         {
             if (_playerPos.x < _mousePos.x)
             {
@@ -108,11 +111,21 @@ public class RunScript : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             _jumpCount = 0;
+            _animator.SetBool("Death", false);
+            //_death = false;
         }
 
         if (collision.gameObject.tag == "Enemy")
         {
-            this.transform.position = _initialPosition;
+            _death = true;
+            _rb.velocity = Vector2.zero;
+            _animator.SetBool("Death", true);
         }
+    }
+
+
+    public void ResetPosition()
+    {
+        this.transform.position = _initialPosition;
     }
 }

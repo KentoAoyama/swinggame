@@ -12,7 +12,7 @@ public class SwingScript : MonoBehaviour
     [SerializeField] GameObject _help;
     [SerializeField] GameObject _particle;
     float _hookTimer;
-    Vector3 _initialPos;
+    //Vector3 RunScript_initialPosition;
     public static RaycastHit2D _hit;
     ParticleSystem _ps;
 
@@ -22,7 +22,7 @@ public class SwingScript : MonoBehaviour
         //jointÇ∆lineÇêÿÇ¡ÇƒÇ®Ç≠
         Hookoff();
 
-        _initialPos = this.transform.position;
+        RunScript._initialPosition = this.transform.position;
 
         _ps = _particle.GetComponent<ParticleSystem>();
     }
@@ -58,9 +58,10 @@ public class SwingScript : MonoBehaviour
             _line.SetPosition(1, _hit.point);
         }
         
-        if (this.transform.position == _initialPos)
+        if (this.transform.position == RunScript._initialPosition)
         {
             Hookoff();
+            RunScript._death = false;
         }
     }
 
