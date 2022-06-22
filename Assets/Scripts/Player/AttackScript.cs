@@ -8,6 +8,8 @@ public class AttackScript : MonoBehaviour
     [SerializeField] GameObject _weapon;
     [SerializeField] float _interval = 1f;
     [SerializeField] float _attackTime = 1f;
+    [SerializeField] AudioClip _attackSound;
+    AudioSource _as;
     float _timer;
     bool _generateOnStart = true;
 
@@ -19,6 +21,8 @@ public class AttackScript : MonoBehaviour
         }
 
         _weapon.SetActive(false);
+
+        _as = GetComponent<AudioSource>();
     }
 
 
@@ -31,6 +35,7 @@ public class AttackScript : MonoBehaviour
             if (_timer > _interval)
             {
                 _timer = 0;
+                _as.PlayOneShot(_attackSound);
                 _weapon.SetActive(true);
                 Invoke(nameof(Weaponoff), _attackTime);
             }

@@ -22,17 +22,16 @@ public class TimerScript : MonoBehaviour
     public static bool _goalin;
 
 
-    void Start()
+    private void OnEnable()
     {
         GoalLineScript._goal = false;
-        
+
         _player = GameObject.FindWithTag("Player");
         _initialPos = _player.transform.position;
         _timerText.text = $"{_timer:f2}";
         _MainUI.SetActive(true);
 
         _gameover.SetActive(false);
-
     }
 
 
@@ -40,7 +39,10 @@ public class TimerScript : MonoBehaviour
     {
         _countdown -= Time.deltaTime;
 
-        if (_player != null && _player.transform.position != _initialPos && _countdown <= 0 && GoalLineScript._goal == false)
+        if (_player != null && 
+            _player.transform.position != _initialPos &&
+            _countdown <= 0 && 
+            GoalLineScript._goal == false)
         {
             if (_timer > 0.1)
             {

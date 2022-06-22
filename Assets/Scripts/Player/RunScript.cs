@@ -54,7 +54,6 @@ public class RunScript : MonoBehaviour
 
             _playerPos = this.transform.position;
         }
-
     }
 
     void FixedUpdate()
@@ -112,7 +111,6 @@ public class RunScript : MonoBehaviour
         {
             _jumpCount = 0;
             _animator.SetBool("Death", false);
-            //_death = false;
         }
 
         if (collision.gameObject.tag == "Enemy")

@@ -11,8 +11,9 @@ public class SwingScript : MonoBehaviour
     [SerializeField] float _hookLength;
     [SerializeField] GameObject _help;
     [SerializeField] GameObject _particle;
+    [SerializeField] AudioClip _hookSound;
+    AudioSource _as;
     float _hookTimer;
-    //Vector3 RunScript_initialPosition;
     public static RaycastHit2D _hit;
     ParticleSystem _ps;
 
@@ -25,6 +26,8 @@ public class SwingScript : MonoBehaviour
         RunScript._initialPosition = this.transform.position;
 
         _ps = _particle.GetComponent<ParticleSystem>();
+
+        _as = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -40,6 +43,7 @@ public class SwingScript : MonoBehaviour
         
         if (_sj.enabled == true)
         {
+           
             _hookTimer += Time.deltaTime;
             
             if (_hookTimer > _hookInterval)
@@ -63,6 +67,11 @@ public class SwingScript : MonoBehaviour
             Hookoff();
             RunScript._death = false;
         }
+
+        if (RunScript._death != false)
+        {
+            Hookoff();
+        }
     }
 
     void Swing()
@@ -73,6 +82,8 @@ public class SwingScript : MonoBehaviour
             //joint‚Æline‚ÌƒIƒ“ƒIƒt‚ð‚·‚é
             if (_sj.enabled == false)
             {
+                //_as.PlayOneShot(_hookSound);
+
                 _sj.enabled = true;
                 _line.enabled = true;
 
@@ -91,11 +102,13 @@ public class SwingScript : MonoBehaviour
         
         HookShootLine();
 
-        if (_hit)
+        if (_hit && RunScript._death == false)
         {
             _sj.connectedAnchor = _hit.point;
             _particle.transform.position = _hit.point;
             _ps.Play();
+
+            _as.PlayOneShot(_hookSound);
         }
         else
         {

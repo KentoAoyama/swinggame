@@ -42,11 +42,11 @@ public class HookLine : MonoBehaviour
             _line.enabled = false;
         }
 
+        if (RunScript._death != false)
+        {
+            _line.enabled = false;
+        }
     }
-
-
-
-
 }
 
 
